@@ -105,7 +105,7 @@ dd.directive('dropdownSelectItem', [
       },
 
       link: function (scope, element, attrs, dropdownSelectCtrl) {
-         scope.selectItem = function () {
+        scope.selectItem = function () {
           if (scope.dropdownSelectItem.href) {
             return;
           }
@@ -131,6 +131,7 @@ dd.directive('dropdownMenu', ['$parse', '$compile', 'DropdownService', '$templat
 
       controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         $scope.labelField = $attrs.dropdownItemLabel || 'text';
+
         var $template = angular.element($templateCache.get('ngDropdowns/templates/dropdownMenu.html'));
         // Attach this controller to the element's data
         $template.data('$dropdownMenuController', this);
@@ -228,3 +229,4 @@ dd.factory('DropdownService', ['$document',
   }
 ]);
 })(window, window.angular);
+
