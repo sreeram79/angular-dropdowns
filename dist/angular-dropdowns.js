@@ -27,6 +27,7 @@ dd.run(['$templateCache', function ($templateCache) {
       ' ng-href="{{dropdownSelectItem.href}}"',
       ' ng-click="selectItem()">',
         '{{dropdownSelectItem[dropdownItemLabel]}}',
+        '<i class="{{ dropdownMenuItem[\'iconCls\'] }}"> </i>',
       '</a>',
     '</li>'
   ].join(''));
@@ -48,6 +49,7 @@ dd.run(['$templateCache', function ($templateCache) {
       ' ng-href="{{dropdownMenuItem.href}}"',
       ' ng-click="selectItem()">',
         '{{dropdownMenuItem[dropdownItemLabel]}}',
+        '<i class="{{ dropdownMenuItem[\'iconCls\'] }}"> </i>',
       '</a>',
     '</li>'
   ].join(''));

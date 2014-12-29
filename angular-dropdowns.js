@@ -27,6 +27,7 @@ dd.run(['$templateCache', function ($templateCache) {
       ' ng-href="{{dropdownSelectItem.href}}"',
       ' ng-click="selectItem()">',
         '{{dropdownSelectItem[dropdownItemLabel]}}',
+        '<i class="{{ dropdownMenuItem[\'iconCls\'] }}"> </i>',
       '</a>',
     '</li>'
   ].join(''));
@@ -48,6 +49,7 @@ dd.run(['$templateCache', function ($templateCache) {
       ' ng-href="{{dropdownMenuItem.href}}"',
       ' ng-click="selectItem()">',
         '{{dropdownMenuItem[dropdownItemLabel]}}',
+        '<i class="{{ dropdownMenuItem[\'iconCls\'] }}"> </i>',
       '</a>',
     '</li>'
   ].join(''));
@@ -67,7 +69,7 @@ dd.directive('dropdownSelect', ['DropdownService',
 
       controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         $scope.labelField = $attrs.dropdownItemLabel || 'text';
-
+        console.log('I ma here '+ $scope.labelField);
         DropdownService.register($element);
 
         this.select = function (selected) {
@@ -104,7 +106,7 @@ dd.directive('dropdownSelectItem', [
       },
 
       link: function (scope, element, attrs, dropdownSelectCtrl) {
-        scope.selectItem = function () {
+         scope.selectItem = function () {
           if (scope.dropdownSelectItem.href) {
             return;
           }
@@ -130,7 +132,7 @@ dd.directive('dropdownMenu', ['$parse', '$compile', 'DropdownService', '$templat
 
       controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         $scope.labelField = $attrs.dropdownItemLabel || 'text';
-
+        console.log('I ma hsdfsdfsdfere '+ $scope.labelField);
         var $template = angular.element($templateCache.get('ngDropdowns/templates/dropdownMenu.html'));
         // Attach this controller to the element's data
         $template.data('$dropdownMenuController', this);
