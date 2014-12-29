@@ -69,6 +69,7 @@ dd.directive('dropdownSelect', ['DropdownService',
 
       controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         $scope.labelField = $attrs.dropdownItemLabel || 'text';
+
         DropdownService.register($element);
 
         this.select = function (selected) {
